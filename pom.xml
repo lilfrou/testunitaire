@@ -11,6 +11,7 @@
     <scope>test</scope>
 </dependency>
   </dependencies>
+  <build>
   <plugins>
   <plugin>
   <groupId>org.jacoco</groupId>
@@ -18,7 +19,8 @@
   <version>0.8.5-SNAPSHOT</version>
 </plugin>
     </plugins>
-   <reporting>
+ </build>
+    <reporting>
     <plugins>
       <plugin>
         <groupId>org.jacoco</groupId>
