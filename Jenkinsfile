@@ -21,6 +21,13 @@ stages {
                 sh "mvn emma:emma"
             }   
       }  
+    stage('emma') {
+            steps {
+               
+                sh "mvn emma:emma"
+            }   
+      }  
+    
     stage('sonar') {
          steps{
     sh 'mvn -X clean verify sonar:sonar\
