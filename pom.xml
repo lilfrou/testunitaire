@@ -13,7 +13,7 @@
 </dependency>
   </dependencies>
   <build>
-        <pluginManagement>
+       
             <plugins>
               
                 <plugin>
@@ -27,6 +27,6 @@
 </configuration>
                 </plugin>
             </plugins>
-        </pluginManagement>
+       
     </build>
 </project>
