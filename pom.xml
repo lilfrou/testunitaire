@@ -13,6 +13,11 @@
   </dependencies>
   <build>
         <pluginManagement>
+          <plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.5-SNAPSHOT</version>
+</plugin>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
