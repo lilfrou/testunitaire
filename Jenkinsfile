@@ -17,8 +17,18 @@ stages {
     }  
          stage('test') {
             steps {
-                sh "mvn clean test"     
+                sh "mvn -Dtest=addtest test"     
             }   
       }  
+    stage('sonar') {
+         steps{
+    sh 'mvn -X clean verify sonar:sonar\
+  -Dsonar.projectKey=lilfrou_testunitaire \
+  -Dsonar.organization=lilfrou-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
+  -Dsonar.java.libraries=target'
+    }     
+}  
 }
 }
