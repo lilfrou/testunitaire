@@ -21,12 +21,6 @@ stages {
                 
             }   
       }  
-    stage('emma') {
-            steps {
-               
-                sh "mvn emma:emma"
-            }   
-      }  
     
     stage('sonar') {
          steps{
