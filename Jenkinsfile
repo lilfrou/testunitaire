@@ -9,10 +9,10 @@ stages {
                 }
             }
         }
-    stage('compile stage') {
+    stage('clean stage') {
              steps {
-              sh "mvn clean compile" 
-                 sh"mvn clean verify"
+              sh "mvn clean" 
+                 
         }
     }  
          stage('test') {
