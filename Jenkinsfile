@@ -17,7 +17,7 @@ stages {
     }  
          stage('test') {
             steps {
-                sh "mvn -Dtest=addtest test"     
+                sh "mvn test"     
             }   
       }  
     stage('sonar') {
