@@ -18,7 +18,7 @@ stages {
          stage('test') {
             steps {
                 sh "mvn test" 
-                sh "mvn emma:emma"
+                
             }   
       }  
     stage('emma') {
