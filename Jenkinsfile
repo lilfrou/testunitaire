@@ -33,6 +33,9 @@ stages {
   -Dsonar.branch.name=sonar2\
   -Dsonar.branch.name=sonar3\
   -Dsonar.branch.target=master\
+  -Dsonar.pullrequest.key=2\
+  -Dsonar.pullrequest.branch=sonar3\
+  -Dsonar.pullrequest.base=master\
   -Dsonar.java.libraries=target'
     }  
         
