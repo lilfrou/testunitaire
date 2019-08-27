@@ -34,7 +34,7 @@ stages {
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
     }  
-        
+       
 }  
 }
 }
