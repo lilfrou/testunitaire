@@ -39,7 +39,7 @@ stages {
   
     stage('sonar') {
          steps{
-    sh 'mvn -X clean verify sonar:sonar\ 
+    sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
