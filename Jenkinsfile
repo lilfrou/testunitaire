@@ -32,7 +32,8 @@ stages {
   -Dsonar.branch.name=lilfrou-patch-1\
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
-    }     
+    }  
+        
 }  
 }
 }
