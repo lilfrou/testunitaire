@@ -37,7 +37,7 @@ stages {
          }
     }
   
-    stage('sonar') {
+    stage('sonarpull') {
          steps{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
