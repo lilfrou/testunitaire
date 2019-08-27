@@ -50,5 +50,18 @@ stages {
   -Dsonar.java.libraries=target'
     }    
 }  
+     stage('sonarpull') {
+         steps{
+    sh 'mvn -X clean verify sonar:sonar\
+             -Dsonar.projectKey=lilfrou_testunitaire \
+  -Dsonar.organization=lilfrou-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
+             -Dsonar.pullrequest.key=3\
+  -Dsonar.pullrequest.branch=feature/sonar2\
+  -Dsonar.pullrequest.base=master\
+  -Dsonar.java.libraries=target'
+    }    
+}  
 }
 }
