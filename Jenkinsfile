@@ -73,8 +73,9 @@ stages {
 }  
      stage("speak") {
          steps{
-        slackSend color: '#BADA55', message: 'Hello, World!'
+        slackSend color: '#BADA55', message: 'all satages has been succefelly completed(building,testing,sonar,deploying,uploading'
     }
+
 }
 }
 }
