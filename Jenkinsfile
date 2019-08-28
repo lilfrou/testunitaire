@@ -29,20 +29,16 @@ stages {
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-
+  -Dsonar.branch.name=sonar1\
+  -Dsonar.branch.name=sonar2\
+  -Dsonar.branch.name=sonar3\
   -Dsonar.pullrequest.key=2\
   -Dsonar.pullrequest.branch=sonar3\
   -Dsonar.pullrequest.base=master\
   -Dsonar.java.libraries=target'
     }  
        
-  -Dsonar.branch.name=sonar1\
-  -Dsonar.branch.name=sonar2\
-  -Dsonar.branch.name=sonar3\
-  -Dsonar.branch.target=master\
-             -Dsonar.java.libraries=target'
          }
-    }
   
     stage('sonarpull') {
          steps{
