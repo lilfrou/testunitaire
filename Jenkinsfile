@@ -64,5 +64,10 @@ stages {
   -Dsonar.java.libraries=target'
     }    
 }  
+    stage('publish') {
+         steps{
+    step([$class: 'ACIPluginPublisher', name: '*.xml', shownOnProjectPage: true])
+             }
+}
 }
 }
