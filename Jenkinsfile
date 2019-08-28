@@ -71,5 +71,10 @@ stages {
   -Dsonar.java.libraries=target'
     }    
 }  
+     stage("speak") {
+         steps{
+        slackSend color: '#BADA55', message: 'Hello, World!'
+    }
+}
 }
 }
