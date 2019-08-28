@@ -19,7 +19,14 @@ stages {
             steps {
                 sh "mvn test" 
                 
-            }   
+          
+           }
+             post {
+        always {
+            archive "target/**/*"
+            junit 'target/surefire-reports/*.xml'
+        }
+    }
       }  
     
     stage('sonar') {
@@ -64,10 +71,5 @@ stages {
   -Dsonar.java.libraries=target'
     }    
 }  
-    stage('publish') {
-         steps{
-    step([$class: 'ACIPluginPublisher', name: '*.xml', shownOnProjectPage: true])
-             }
-}
 }
 }
