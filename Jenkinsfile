@@ -9,7 +9,6 @@ stages {
                     // Let's clone the source
                     git 'https://github.com/lilfrou/testunitaire.git';
                    
-
                 }
             }
         }
