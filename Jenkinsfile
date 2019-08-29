@@ -12,6 +12,7 @@ stages {
                 }
             }
         }
+   if (env.BRANCH_NAME == 'master){
     stage('clean stage') {
              steps {
               sh "mvn clean" 
@@ -81,5 +82,6 @@ stages {
     }
 
 }
+       }
 }
 } 
