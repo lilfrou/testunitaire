@@ -6,7 +6,7 @@ stages {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/lilfrou/testunitaire.git',branch: 'master';
+                    git 'https://github.com/lilfrou/testunitaire.git',branch: 'master','develop';
                 }
             }
         }
@@ -39,7 +39,7 @@ stages {
   -Dsonar.branch.name=sonar1\
   -Dsonar.branch.name=sonar2\
   -Dsonar.branch.name=sonar3\
-  -Dsonar.pullrequest.target=master\
+  -Dsonar.pullrequest.target=master\'
   -Dsonar.java.libraries=target'
     }  
        
