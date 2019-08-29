@@ -1,8 +1,9 @@
 pipeline {
    
     agent any
+   if (env.BRANCH_NAME == 'master'){
 stages {
-     if (env.BRANCH_NAME == 'master'){
+     
         stage("clone code") {
             steps {
                 script {
