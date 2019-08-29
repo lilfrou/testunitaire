@@ -37,6 +37,9 @@ stages {
       }  
     
     stage('sonar') {
+       when {
+                branch 'master'
+            }
          steps{
     sh 'mvn -X clean verify sonar:sonar\
   -Dsonar.projectKey=lilfrou_testunitaire \
@@ -53,6 +56,9 @@ stages {
          }
   
     stage('sonarpull') {
+       when {
+                branch 'master'
+            }
          steps{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
@@ -66,6 +72,10 @@ stages {
     }    
 }  
      stage('sonarpull23') {
+        when {
+                branch 'master'
+            }
+        
          steps{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
@@ -79,6 +89,9 @@ stages {
     }    
 }  
      stage("speak") {
+        hen {
+                branch 'develop'
+            }
          steps{
         slackSend color: '#BADA55', message: '##################################################'
         slackSend color: '#BADA55', message: '###########****ALL STAGES COMPLETED****#############'
