@@ -2,6 +2,7 @@ pipeline {
    
     agent any
 stages {
+     if (env.BRANCH_NAME == 'master'){
         stage("clone code") {
             steps {
                 script {
@@ -12,7 +13,7 @@ stages {
                 }
             }
         }
-   if (env.BRANCH_NAME == 'master'){
+ 
     stage('clean stage') {
              steps {
               sh "mvn clean" 
