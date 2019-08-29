@@ -89,7 +89,7 @@ stages {
     }    
 }  
      stage("speak") {
-        hen {
+        when {
                 branch 'develop'
             }
          steps{
