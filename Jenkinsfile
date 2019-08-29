@@ -8,8 +8,7 @@ stages {
                 script {
                     // Let's clone the source
                    git 'https://github.com/lilfrou/testunitaire.git';
-                   def branch = env.BRANCH_NAME
-                   sh 'echo $branch'
+                  
                    
                 }
             }
@@ -22,6 +21,9 @@ stages {
         }
     }  
          stage('test') {
+             when {
+                branch 'master'
+             }
             steps {
                 sh "mvn test" 
                 
