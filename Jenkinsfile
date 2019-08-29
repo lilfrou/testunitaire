@@ -6,8 +6,8 @@ stages {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/lilfrou/testunitaire.git',branch: 'master';
-                    git 'https://github.com/lilfrou/testunitaire.git',branch: 'develop';
+                    git 'https://github.com/lilfrou/testunitaire.git';
+                   
 
                 }
             }
