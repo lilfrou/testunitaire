@@ -21,6 +21,8 @@ stages {
         }
     }  
          stage('test') {
+            when {
+                branch 'develop'
             steps {
                 sh "mvn test" 
                 
