@@ -1,10 +1,10 @@
 pipeline {
     node{
         
-        stage("clone code") {
+        
            
                     git 'https://github.com/lilfrou/testunitaire.git';      
-                            }
+                            
        } 
          }
     /* agent any
