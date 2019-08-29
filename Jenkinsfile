@@ -7,7 +7,9 @@ stages {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/lilfrou/testunitaire.git';
+                   git 'https://github.com/lilfrou/testunitaire.git';
+                   def branch = env.BRANCH_NAME
+                   sh 'echo $BRANCH_NAME'
                    
                 }
             }
