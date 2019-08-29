@@ -39,7 +39,7 @@ stages {
   -Dsonar.branch.name=sonar1\
   -Dsonar.branch.name=sonar2\
   -Dsonar.branch.name=sonar3\
-  -Dsonar.pullrequest.target=master\'
+  -Dsonar.pullrequest.target=master\
   -Dsonar.java.libraries=target'
     }  
        
