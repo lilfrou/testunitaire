@@ -1,7 +1,6 @@
 pipeline {
    
     agent any
-   if (env.BRANCH_NAME == 'master'){
 stages {
      
         stage("clone code") {
@@ -84,6 +83,6 @@ stages {
     }
 
 }
-       }
+       
 }
 } 
