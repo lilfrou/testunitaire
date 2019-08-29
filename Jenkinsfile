@@ -1,5 +1,13 @@
 pipeline {
-    agent any
+    node{
+        
+        stage("clone code") {
+           
+                    git 'https://github.com/lilfrou/testunitaire.git';      
+                            }
+       } 
+         }
+    /* agent any
 stages {
         stage("clone code") {
             steps {
@@ -23,7 +31,6 @@ stages {
            }
              post {
         always {
-            archive "target/**/*"
             junit 'target/surefire-reports/*.xml'
         }
     }
@@ -80,4 +87,4 @@ stages {
 
 }
 }
-}
+} */
