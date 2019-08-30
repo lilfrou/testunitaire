@@ -33,11 +33,6 @@ stages {
                    }catch (Exception e){
         testPassed = true
            }
-             post {
-        always {
-            junit 'target/surefire-reports/*.xml'
-        }
-    }
       }  
       
     
@@ -46,6 +41,7 @@ stages {
                 branch 'master'
             }
          steps{
+             if(testPassed){
     sh 'mvn -X clean verify sonar:sonar\
   -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
@@ -57,7 +53,7 @@ stages {
   -Dsonar.pullrequest.target=master\
   -Dsonar.java.libraries=target'
     }  
-       
+         } 
          }
   
     stage('sonarpull') {
