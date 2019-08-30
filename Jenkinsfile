@@ -30,7 +30,7 @@ stages {
                 branch 'master'
             }
          steps{
-             if(testPassed){
+            
     sh 'mvn -X clean verify sonar:sonar\
   -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
@@ -41,7 +41,7 @@ stages {
   -Dsonar.branch.name=sonar3\
   -Dsonar.pullrequest.target=master\
   -Dsonar.java.libraries=target'
-    }  
+     
          } 
          }
   
