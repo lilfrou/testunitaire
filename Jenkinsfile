@@ -12,6 +12,8 @@ stages {
         }
     }  
    
+   script {
+  try { 
          stage('test') {
             when {
                 branch 'develop'
@@ -20,9 +22,12 @@ stages {
             steps {
                 
           sh "mvn test"
-                   
+                
                 }
       }  
+     catch(all) {
+        currentBuild.result = 'FAILURE'
+     }
       
     
     stage('sonar') {
@@ -30,6 +35,7 @@ stages {
                 branch 'master'
             }
          steps{
+            
             
     sh 'mvn -X clean verify sonar:sonar\
   -Dsonar.projectKey=lilfrou_testunitaire \
