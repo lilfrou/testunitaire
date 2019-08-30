@@ -28,13 +28,9 @@ stages {
             }
                 
             steps {
-                script {
-               boolean testPassed = false
-               try{
-                sh "mvn test"
-                   }catch (Exception e){
-        testPassed = true
-           }
+                
+          sh "mvn test"
+                   
                 }
       }  
       
