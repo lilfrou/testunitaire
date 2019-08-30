@@ -21,13 +21,14 @@ stages {
                  
         }
     }  
-   boolean testPassed = false
+   
          stage('test') {
             when {
                 branch 'develop'
             }
                 
             steps {
+               boolean testPassed = false
                try{
                 sh "mvn test"
                    }catch (Exception e){
