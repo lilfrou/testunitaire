@@ -24,11 +24,15 @@ stages {
             when {
                 branch 'develop'
             }
+             def clean = 'mvn clean'
+    if (clean == 'Success') {
+    
             steps {
                 sh "mvn test" 
                 
           
            }
+    }
              post {
         always {
             junit 'target/surefire-reports/*.xml'
