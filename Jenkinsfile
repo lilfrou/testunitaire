@@ -97,6 +97,11 @@ stages {
         slackSend color: '#BADA55', message: '###########****ALL STAGES COMPLETED****#############'
         slackSend color: '#BADA55', message: '##################################################'
     }
+            post { 
+        always { 
+            cleanWs()
+        }
+ 
 
 }
       
