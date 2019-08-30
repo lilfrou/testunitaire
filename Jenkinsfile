@@ -13,6 +13,7 @@ stages {
                 }
             }
         }
+   
  
     stage('clean stage') {
              steps {
@@ -20,25 +21,25 @@ stages {
                  
         }
     }  
+   boolean testPassed = false
          stage('test') {
             when {
                 branch 'develop'
             }
-             def clean = 'mvn clean'
-    if (clean == 'Success') {
-    
-            steps {
-                sh "mvn test" 
                 
-          
+            steps {
+               try{
+                sh "mvn test"
+                   }catch (Exception e){
+        testPassed = true
            }
-    }
              post {
         always {
             junit 'target/surefire-reports/*.xml'
         }
     }
       }  
+      
     
     stage('sonar') {
        when {
@@ -92,6 +93,7 @@ stages {
   -Dsonar.java.libraries=target'
     }    
 }  
+
      stage("speak") {
         when {
                 branch 'develop'
