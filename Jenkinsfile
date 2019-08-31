@@ -100,7 +100,7 @@ stages {
                script{
                   def casse ='true'
                   
-                  if(casee =='true')
+                  if(casse =='true')
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
