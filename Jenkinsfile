@@ -97,8 +97,8 @@ stages {
      } */  
           stage('CleanWorkspace') {
             steps {
-               scripts{
-                  def casse ='true'
+               script{
+                  
                   if(casee =='true')
                   {
                      cleanWs() }
