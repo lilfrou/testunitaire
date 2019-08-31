@@ -3,6 +3,7 @@ pipeline {
    
     agent any
 stages {
+    script {
       
     stage('clean stage') {
              steps {
@@ -16,7 +17,7 @@ stages {
             }
                 
             steps {
-               script {
+              
                   def casee ='true'
             try { 
                 
@@ -27,7 +28,7 @@ stages {
                 }
                
       }  
-         }
+         
     
     stage('sonar') {
        when {
@@ -97,7 +98,7 @@ stages {
      } */  
           stage('CleanWorkspace') {
             steps {
-               script{
+               
                   
                   
                   if(casee =='true')
@@ -106,6 +107,6 @@ stages {
                   else { echo 'I execute elsewhere'}
                }
             }
-          }
+    }  
 }
 } 
