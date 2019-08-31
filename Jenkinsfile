@@ -43,7 +43,7 @@ stages {
     
     stage('sonar') {
         when {
-                branch 'develop'
+                branch 'master'
             }
       
          steps{
@@ -55,32 +55,15 @@ stages {
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
   -Dsonar.branch.name=develop\
-  -Dsonar.pullrequest.target=master\
+  -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
      
          } 
          }
-  
-    stage('sonarpull') {
-        when {
-                branch 'develop'
-            }
-      
-         steps{
-    sh 'mvn -X clean verify sonar:sonar\
-             -Dsonar.projectKey=lilfrou_testunitaire \
-  -Dsonar.organization=lilfrou-github \
-  -Dsonar.host.url=https://sonarcloud.io \
-  -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-             -Dsonar.pullrequest.key=2\
-  -Dsonar.pullrequest.branch=feature/sonar3\
-  -Dsonar.pullrequest.base=master\
-  -Dsonar.java.libraries=target'
-    }    
-}  
+
      stage('sonarpull23') {
       when {
-                branch 'develop'
+                branch 'master'
             }
         
          steps{
@@ -90,8 +73,8 @@ stages {
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-             -Dsonar.pullrequest.key=3\
-  -Dsonar.pullrequest.branch=feature/sonar2\
+             -Dsonar.pullrequest.key=4\
+  -Dsonar.pullrequest.branch=feature/develop\
   -Dsonar.pullrequest.base=master\
   -Dsonar.java.libraries=target'
                casee="false"
