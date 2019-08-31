@@ -26,7 +26,7 @@ stages {
                 
           sh "mvn test"
                  } catch (Exception e) {
-               {casee ="false" }
+               casee ="false" }
                 
                 }
             }
