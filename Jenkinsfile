@@ -102,12 +102,13 @@ stages {
           stage('CleanWorkspace') {
             steps {
                
-                   def casee ="true"
+               script{
                   
                   if(casee =="true")
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
+               }
                }
             }
      
