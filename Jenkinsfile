@@ -42,9 +42,7 @@ stages {
    }
     
     stage('sonar') {
-       when {
-                branch 'master'
-            }
+      
          steps{
             
             
@@ -53,9 +51,7 @@ stages {
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-  -Dsonar.branch.name=sonar1\
-  -Dsonar.branch.name=sonar2\
-  -Dsonar.branch.name=sonar3\
+  -Dsonar.branch.name=develop\
   -Dsonar.pullrequest.target=master\
   -Dsonar.java.libraries=target'
      
@@ -63,9 +59,7 @@ stages {
          }
   
     stage('sonarpull') {
-       when {
-                branch 'master'
-            }
+      
          steps{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
@@ -79,9 +73,7 @@ stages {
     }    
 }  
      stage('sonarpull23') {
-        when {
-                branch 'master'
-            }
+     
         
          steps{
             script{
