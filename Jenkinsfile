@@ -1,4 +1,4 @@
-def boolean casee
+def casee ="true"
 pipeline {
    
     agent any
@@ -19,7 +19,7 @@ stages {
                 
             steps {
                script {
-                  casee=='true'
+                 
                   
             try { 
                 
