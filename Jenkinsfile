@@ -1,34 +1,30 @@
+def case = true
 pipeline {
    
     agent any
 stages {
-     
-       
- 
+      
     stage('clean stage') {
              steps {
               sh "mvn clean" 
                  
         }
     }  
-   
-   script {
-  try { 
          stage('test') {
             when {
                 branch 'develop'
             }
                 
             steps {
+               script {
+            try { 
                 
           sh "mvn test"
+                 } catch (Exception e) {
+               case =false }
                 
                 }
       }  
-     catch(all) {
-        currentBuild.result = 'FAILURE'
-     }
-      
     
     stage('sonar') {
        when {
