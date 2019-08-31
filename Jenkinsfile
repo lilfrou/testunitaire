@@ -104,7 +104,7 @@ stages {
                
                script{
                   
-                  if(casee =="true")
+                  if(casee =="false")
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
