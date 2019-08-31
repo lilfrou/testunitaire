@@ -55,7 +55,7 @@ stages {
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
   -Dsonar.branch.name=develop\
-  -Dsonar.pullrequest.target=master\
+  -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
      
          } 
