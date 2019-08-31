@@ -1,4 +1,4 @@
-def casee
+def boolean casee
 pipeline {
    
     agent any
