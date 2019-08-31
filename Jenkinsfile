@@ -17,12 +17,12 @@ stages {
                 
             steps {
                script {
-                  def case = true
+                  def case ='true'
             try { 
                 
           sh "mvn test"
                  } catch (Exception e) {
-               case =false }
+               case ='false' }
                 
                 }
       }  
