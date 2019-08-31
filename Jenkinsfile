@@ -98,9 +98,9 @@ stages {
           stage('CleanWorkspace') {
             steps {
                script{
-                  def casse ='true'
                   
-                  if(casse =='true')
+                  
+                  if(casee =='true')
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
