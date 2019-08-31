@@ -1,64 +1,71 @@
+def casee ="true"
 pipeline {
    
     agent any
+   
 stages {
-     
-        stage("clone code") {
-            steps {
-                script {
-                    // Let's clone the source
-                   git 'https://github.com/lilfrou/testunitaire.git';
-                  
-                   
-                }
-            }
-        }
- 
+   
+      
     stage('clean stage') {
              steps {
+                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
               sh "mvn clean" 
                  
         }
     }  
+    }
          stage('test') {
             when {
                 branch 'develop'
             }
-            steps {
-                sh "mvn test" 
                 
-          
-           }
-             post {
-        always {
-            junit 'target/surefire-reports/*.xml'
-        }
-    }
+            steps {
+               script {
+                  
+                  
+            try { 
+              
+                
+          sh "mvn test"
+                 } catch (Exception e) {
+               casee ="false" }
+                
+                }
+            }
       }  
+         stage("false")
+   {
+      steps{
+         script{
+            casee="false"}
+      }
+   }
     
     stage('sonar') {
-       when {
-                branch 'master'
+        when {
+                branch 'develop'
             }
+      
          steps{
+            
+            
     sh 'mvn -X clean verify sonar:sonar\
   -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-  -Dsonar.branch.name=sonar1\
-  -Dsonar.branch.name=sonar2\
-  -Dsonar.branch.name=sonar3\
+  -Dsonar.branch.name=develop\
   -Dsonar.pullrequest.target=master\
   -Dsonar.java.libraries=target'
-    }  
-       
+     
+         } 
          }
   
     stage('sonarpull') {
-       when {
-                branch 'master'
+        when {
+                branch 'develop'
             }
+      
          steps{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
@@ -72,11 +79,12 @@ stages {
     }    
 }  
      stage('sonarpull23') {
-        when {
-                branch 'master'
+      when {
+                branch 'develop'
             }
         
          steps{
+            script{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
@@ -86,9 +94,12 @@ stages {
   -Dsonar.pullrequest.branch=feature/sonar2\
   -Dsonar.pullrequest.base=master\
   -Dsonar.java.libraries=target'
+               casee="false"
+            }
     }    
 }  
-     stage("speak") {
+
+     /*stage("speak") {
         when {
                 branch 'develop'
             }
@@ -97,8 +108,20 @@ stages {
         slackSend color: '#BADA55', message: '###########****ALL STAGES COMPLETED****#############'
         slackSend color: '#BADA55', message: '##################################################'
     }
-
-}
        
+     } */  
+          stage('CleanWorkspace') {
+            steps {
+               
+               script{
+                  
+                  if(casee =="true")
+                  {
+                     cleanWs() }
+                  else { echo 'I execute elsewhere'}
+               }
+               }
+            }
+     
 }
 } 
