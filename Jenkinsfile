@@ -8,10 +8,12 @@ stages {
       
     stage('clean stage') {
              steps {
+                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
               sh "mvn clean" 
                  
         }
     }  
+    }
          stage('test') {
             when {
                 branch 'develop'
