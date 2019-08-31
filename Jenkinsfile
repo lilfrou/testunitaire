@@ -76,6 +76,7 @@ stages {
             }
         
          steps{
+            script{
     sh 'mvn -X clean verify sonar:sonar\
              -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
@@ -85,6 +86,8 @@ stages {
   -Dsonar.pullrequest.branch=feature/sonar2\
   -Dsonar.pullrequest.base=master\
   -Dsonar.java.libraries=target'
+               casee="false"
+            }
     }    
 }  
 
@@ -104,7 +107,7 @@ stages {
                
                script{
                   
-                  if(casee =="false")
+                  if(casee =="true")
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
