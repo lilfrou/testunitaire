@@ -42,6 +42,9 @@ stages {
    }
     
     stage('sonar') {
+        when {
+                branch 'develop'
+            }
       
          steps{
             
@@ -59,6 +62,9 @@ stages {
          }
   
     stage('sonarpull') {
+        when {
+                branch 'develop'
+            }
       
          steps{
     sh 'mvn -X clean verify sonar:sonar\
@@ -73,7 +79,9 @@ stages {
     }    
 }  
      stage('sonarpull23') {
-     
+      when {
+                branch 'develop'
+            }
         
          steps{
             script{
