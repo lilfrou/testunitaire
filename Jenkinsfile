@@ -102,7 +102,7 @@ stages {
           stage('CleanWorkspace') {
             steps {
                
-                  
+                   def casee ="true"
                   
                   if(casee =="true")
                   {
