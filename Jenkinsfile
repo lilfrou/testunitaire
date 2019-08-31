@@ -84,7 +84,7 @@ stages {
     }    
 }  
 
-     stage("speak") {
+     /*stage("speak") {
         when {
                 branch 'develop'
             }
@@ -94,7 +94,7 @@ stages {
         slackSend color: '#BADA55', message: '##################################################'
     }
        
-     }   
+     } */  
           stage('CleanWorkspace') {
             steps {
                 cleanWs()
