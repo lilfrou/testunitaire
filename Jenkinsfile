@@ -2,8 +2,19 @@
 pipeline {
    
     agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+
+        booleanParam(name: 'casee', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    }
 stages {
-    script {
+   
       
     stage('clean stage') {
              steps {
@@ -17,16 +28,16 @@ stages {
             }
                 
             steps {
-              
-                  def casee ='true'
+               script {
+                  
             try { 
                 
           sh "mvn test"
                  } catch (Exception e) {
-               casee ='false' }
+               ${params.TOGGLE} ='false' }
                 
                 }
-               
+            }
       }  
          
     
@@ -101,12 +112,12 @@ stages {
                
                   
                   
-                  if(casee =='true')
+                  if(${params.TOGGLE} =='true')
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
                }
             }
-    }  
+     
 }
 } 
