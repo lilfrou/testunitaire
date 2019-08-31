@@ -43,7 +43,7 @@ stages {
     
     stage('sonar') {
         when {
-                branch 'master'
+                branch 'develop'
             }
       
          steps{
@@ -63,7 +63,7 @@ stages {
 
      stage('sonarpull23') {
       when {
-                branch 'master'
+                branch 'develop'
             }
         
          steps{
