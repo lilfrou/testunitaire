@@ -34,7 +34,7 @@ stages {
                 
           sh "mvn test"
                  } catch (Exception e) {
-               ${params.TOGGLE} ='false' }
+               {casee ='false' }
                 
                 }
             }
