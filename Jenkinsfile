@@ -1,4 +1,4 @@
-
+def casee ="true"
 pipeline {
    
     agent any
@@ -19,7 +19,7 @@ stages {
                 
             steps {
                script {
-                  def casee ="true"
+                  
                   
             try { 
               
