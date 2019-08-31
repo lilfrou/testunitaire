@@ -31,7 +31,13 @@ stages {
                 }
             }
       }  
-         
+         stage("false")
+   {
+      steps{
+         script{
+            casee="false"}
+      }
+   }
     
     stage('sonar') {
        when {
