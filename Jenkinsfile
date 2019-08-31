@@ -55,7 +55,6 @@ stages {
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=17701039889eecb892ffab60e80097a8f57449bf\
   -Dsonar.branch.name=develop\
-  -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
      
          } 
@@ -73,8 +72,8 @@ stages {
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-             -Dsonar.pullrequest.key=4\
-  -Dsonar.pullrequest.branch=feature/develop\
+             -Dsonar.pullrequest.key=5\
+  -Dsonar.pullrequest.branch=develop\
   -Dsonar.pullrequest.base=master\
   -Dsonar.java.libraries=target'
                casee="false"
