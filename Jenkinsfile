@@ -19,14 +19,14 @@ stages {
                 
             steps {
                script {
-                 
+                  def casee ="true"
                   
             try { 
-               def casee ="true"
+              
                 
           sh "mvn test"
                  } catch (Exception e) {
-               {casee ='false' }
+               {casee ="false" }
                 
                 }
             }
@@ -104,7 +104,7 @@ stages {
                
                   
                   
-                  if(casee =='true')
+                  if(casee =="true")
                   {
                      cleanWs() }
                   else { echo 'I execute elsewhere'}
