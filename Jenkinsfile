@@ -98,6 +98,7 @@ stages {
           stage('CleanWorkspace') {
             steps {
                script{
+                  def casse ='true'
                   
                   if(casee =='true')
                   {
