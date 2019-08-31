@@ -1,4 +1,4 @@
-def casee ="true"
+
 pipeline {
    
     agent any
@@ -22,6 +22,7 @@ stages {
                  
                   
             try { 
+               def casee ="true"
                 
           sh "mvn test"
                  } catch (Exception e) {
