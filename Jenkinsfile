@@ -1,4 +1,4 @@
-def case = true
+
 pipeline {
    
     agent any
@@ -17,6 +17,7 @@ stages {
                 
             steps {
                script {
+                  def case = true
             try { 
                 
           sh "mvn test"
