@@ -97,7 +97,12 @@ stages {
      } */  
           stage('CleanWorkspace') {
             steps {
-                cleanWs()
+               scripts{
+                  if(casee =='true')
+                  {
+                     cleanWs() }
+                  else { echo 'I execute elsewhere'}
+               }
             }
           }
 }
