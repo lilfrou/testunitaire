@@ -94,6 +94,7 @@ stages {
   -Dsonar.pullrequest.branch=develop\
   -Dsonar.pullrequest.base=master\
   -Dsonar.pullrequest.provider=GitHub\
+  -Dsonar.pullrequest.github.repository=lilfrou/testunitaire\
   -Dsonar.java.libraries=target'
                casee="false"
             }
