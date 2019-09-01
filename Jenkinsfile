@@ -90,7 +90,7 @@ stages {
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
      } catch (Exception e) {
-               def casee ="false"
+               def sonar ="false"
              }
             }
          } 
