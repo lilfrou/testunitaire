@@ -101,18 +101,11 @@ stages {
     }    
 }  
 
-     /*stage("speak") {
-        when {
-                branch 'develop'
-            }
-         steps{
-        slackSend color: '#BADA55', message: '##################################################'
-        slackSend color: '#BADA55', me
 
     
-     /*stage("speak") {
+     stage("speak") {
         when {
-                branch 'develop'
+                branch 'master'
             }
          steps{
         slackSend color: '#BADA55', message: '##################################################'
@@ -120,7 +113,7 @@ stages {
         slackSend color: '#BADA55', message: '##################################################'
     }
        
-     } */  
+     }  
           stage('CleanWorkspace') {
             steps {
                
