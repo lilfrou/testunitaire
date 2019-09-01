@@ -26,12 +26,8 @@ stages {
             }
                 
             steps {
-               script {
-                  
-                  
+               script {   
             try { 
-              
-                
           sh "mvn test"
                  } catch (Exception e) {
          slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
@@ -56,9 +52,7 @@ stages {
                 branch 'master'
             }
       
-         steps{
-            
-            
+         steps{        
     sh 'mvn -X clean verify sonar:sonar\
   -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
@@ -95,6 +89,7 @@ stages {
             }
          } 
          }
+   }
 
      stage('sonarpull23') {
       when {
