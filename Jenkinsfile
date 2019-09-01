@@ -83,7 +83,7 @@ stages {
   -Dsonar.branch.name=test\
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
-               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+              
                sh"cd terer"
      } catch (Exception e) {
                 sonar ="false"
@@ -92,7 +92,7 @@ stages {
                  
          } 
          }
-   }
+   
 
      stage('sonarpull23') {
       when {
