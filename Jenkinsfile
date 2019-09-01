@@ -116,6 +116,7 @@ stages {
                 branch 'master'
             }
          steps{
+        slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         slackSend color: '#BADA55', message: '##################################################'
         slackSend color: '#BADA55', message: '###########****ALL STAGES COMPLETED****#############'
         slackSend color: '#BADA55', message: '##################################################'
