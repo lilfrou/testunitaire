@@ -87,6 +87,7 @@ stages {
                 sonar ="false"
              }
             }
+                 sh "exit 1"
          } 
          }
    }
