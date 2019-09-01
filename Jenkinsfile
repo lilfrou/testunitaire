@@ -9,11 +9,13 @@ stages {
     stage('clean stage') {
              steps {
                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-              sh "mvn clean" 
+              sh "mvn clean install" 
                  
         }
     }  
     }
+    stage('Parallel In Sequential') {
+                    parallel {
          stage('test') {
             when {
                 branch 'develop'
@@ -40,8 +42,9 @@ stages {
             casee="false"}
       }
    }
-    stage('Parallel In Sequential') {
-                    parallel {
+                    }
+    }
+   
     stage('sonar') {
         when {
                 branch 'master'
@@ -101,8 +104,7 @@ stages {
             }
     }    
 }  
-    }
-    }
+
 
     
      stage("speak") {
