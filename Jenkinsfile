@@ -73,9 +73,13 @@ stages {
             }
       
          steps{
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+             script {
+                  
+                  
+            try { 
             
-            
-    sh 'mvn -X clean verify sonar:sonar\
+    sh 'mvn -X clean verify sonar:sonarrtef\
   -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
@@ -84,7 +88,10 @@ stages {
   -Dsonar.branch.name=test\
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
-     
+     } catch (Exception e) {
+   slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")}
+             }
+            }
          } 
          }
 
