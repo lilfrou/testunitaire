@@ -43,6 +43,23 @@ stages {
     
     stage('sonar') {
         when {
+                branch 'master'
+            }
+      
+         steps{
+            
+            
+    sh 'mvn -X clean verify sonar:sonar\
+  -Dsonar.projectKey=lilfrou_testunitaire \
+  -Dsonar.organization=lilfrou-github \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=17701039889eecb892ffab60e80097a8f57449bf\
+  -Dsonar.java.libraries=target'
+     
+         } 
+         }
+   stage('sonar branche') {
+        when {
                 branch 'develop'
             }
       
@@ -55,6 +72,7 @@ stages {
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=17701039889eecb892ffab60e80097a8f57449bf\
   -Dsonar.branch.name=develop\
+  -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
      
          } 
@@ -75,12 +93,23 @@ stages {
              -Dsonar.pullrequest.key=5\
   -Dsonar.pullrequest.branch=develop\
   -Dsonar.pullrequest.base=master\
+  -Dsonar.pullrequest.provider=GitHub\
+  -Dsonar.pullrequest.github.repository=lilfrou/testunitaire\
   -Dsonar.java.libraries=target'
                casee="false"
             }
     }    
 }  
 
+     /*stage("speak") {
+        when {
+                branch 'develop'
+            }
+         steps{
+        slackSend color: '#BADA55', message: '##################################################'
+        slackSend color: '#BADA55', me
+
+    
      /*stage("speak") {
         when {
                 branch 'develop'
