@@ -97,19 +97,19 @@ stages {
             }
         
          steps{
-            script{
+            
     sh 'mvn -X clean verify sonar:sonar\
-             -Dsonar.projectKey=lilfrou_testunitaire \
+  -Dsonar.projectKey=lilfrou_testunitaire \
   -Dsonar.organization=lilfrou-github \
   -Dsonar.host.url=https://sonarcloud.io \
   -Dsonar.login=e189365c4558258b652641977ce8374c17e0805f\
-             -Dsonar.pullrequest.key=5\
+  -Dsonar.pullrequest.key=5\
   -Dsonar.pullrequest.branch=develop\
   -Dsonar.pullrequest.base=master\
   -Dsonar.pullrequest.provider=GitHub\
   -Dsonar.pullrequest.github.repository=lilfrou/testunitaire\
   -Dsonar.java.libraries=target'
-               casee="false"
+               
             }
     }    
 }  
