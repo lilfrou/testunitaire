@@ -71,7 +71,7 @@ stages {
              
              script {
                   
-      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+      
             try { 
             
     sh 'mvn -X clean verify sonar:sonar\
@@ -83,6 +83,7 @@ stages {
   -Dsonar.branch.name=test\
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                sh"cd terer"
      } catch (Exception e) {
                 sonar ="false"
