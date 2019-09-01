@@ -18,7 +18,7 @@ stages {
                     parallel {
          stage('test') {
             when {
-                branch 'develop'
+                branch 'master'
             }
                 
             steps {
