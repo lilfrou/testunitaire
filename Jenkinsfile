@@ -73,10 +73,10 @@ stages {
             }
       
          steps{
-            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            
              script {
                   
-                  
+    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {   
             try { 
             
     sh 'mvn -X clean verify sonar:sonarrtef\
