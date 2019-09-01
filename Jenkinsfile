@@ -1,4 +1,5 @@
 def casee ="true"
+def sonar ="true"
 pipeline {
    
     agent any
@@ -89,7 +90,7 @@ stages {
   -Dsonar.branch.target=master\
   -Dsonar.java.libraries=target'
      } catch (Exception e) {
-   slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")}
+               def casee ="false"
              }
             }
          } 
@@ -125,10 +126,14 @@ stages {
                 branch 'master'
             }
          steps{
-        slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-        slackSend color: '#BADA55', message: '##################################################'
-        slackSend color: '#BADA55', message: '###########****ALL STAGES COMPLETED****#############'
-        slackSend color: '#BADA55', message: '##################################################'
+            script{
+                  
+                  if(sonar =="true")
+                  {
+        slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")}
+               esle{
+               slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")}
+            }
     }
        
      }  
