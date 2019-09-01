@@ -40,7 +40,7 @@ stages {
             casee="false"}
       }
    }
-    
+    parallel {
     stage('sonar') {
         when {
                 branch 'master'
@@ -100,6 +100,7 @@ stages {
             }
     }    
 }  
+    }
 
 
     
